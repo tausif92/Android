@@ -1,13 +1,14 @@
 *** Settings ***
 Library         AppiumLibrary
-#Test Setup      AppiumLibrary.Open Application    http://localhost:4723/wd/hub   platformName=Android   platformVersion=10    deviceName=emulator-5554   appPackage=com.eit.srd   appActivity=com.eit.srd.MainActivity
-#Test Teardown   Close Application
+Test Setup      AppiumLibrary.Open Application    http://localhost:4723/wd/hub   platformName=Android   platformVersion=10    deviceName=emulator-5554   appPackage=com.eit.srd   appActivity=com.eit.srd.MainActivity
+Test Teardown   Close Application
 
 *** Variables ***
 
 *** Test Cases ***
 Consignment Tracking
     [Tags]   Regression
+    Log To Console     \nChecking Consignment Tracking...
     #Click menu
     AppiumLibrary.Wait Until Element Is Visible    //*[@text='menu']   timeout=60   error=Menu button is not visible
     AppiumLibrary.Click Element    //*[@text='menu']
@@ -15,11 +16,14 @@ Consignment Tracking
     AppiumLibrary.Wait Until Element Is Visible    //*[@text='pin Consignment Tracking']   timeout=60   error=Consignment tracking option is not visible
     AppiumLibrary.Click Element    //*[@text='pin Consignment Tracking']
     AppiumLibrary.Wait Until Element Is Visible    //*[@class='android.widget.EditText']   timeout=60   error=Consignment ID textbox is not visible
-    AppiumLibrary.Input Text   //*[@class='android.widget.EditText']   xyz123
+    AppiumLibrary.Input Text   //*[@class='android.widget.EditText']   5853163
+    AppiumLibrary.Click Element    //*[@text='arrow forward']
     Sleep     2
+    AppiumLibrary.Wait Until Page Does Not Contain Element   //*[@class='android.app.Dialog']/android.view.View   timeout=15   error=Consignment Tracking is taking longer than usual...
 
 About Us
     [Tags]   Regression
+    Log To Console     \nChecking About Us page...
     #Click menu
     AppiumLibrary.Wait Until Element Is Visible    //*[@text='menu']   timeout=60   error=Menu button is not visible
     AppiumLibrary.Click Element    //*[@text='menu']
@@ -31,6 +35,7 @@ About Us
 
 Latest News
     [Tags]   Regression
+    Log To Console     \nChecking Latest News page...
     #Click menu
     AppiumLibrary.Wait Until Element Is Visible    //*[@text='menu']   timeout=60   error=Menu button is not visible
     AppiumLibrary.Click Element    //*[@text='menu']
@@ -41,18 +46,19 @@ Latest News
     AppiumLibrary.Wait Until Page Does Not Contain Element   //*[@class='android.app.Dialog']/android.view.View   timeout=15   error=Latest News option is still loading...
 
 Our Branches
-    [Tags]   Regression    branches
-#    AppiumLibrary.Wait Until Element Is Visible    //*[@text='menu']   timeout=60   error=Menu button is not visible
-#    AppiumLibrary.Click Element    //*[@text='menu']
-#    #Click Our Branches
-#    AppiumLibrary.Wait Until Element Is Visible    //*[@text='wifi Our Branches']   timeout=60   error=Our Branches option is not visible
-#    AppiumLibrary.Click Element    //*[@text='wifi Our Branches']
-#    Sleep    2
-#    AppiumLibrary.Wait Until Element Is Visible    id=select-8-0   timeout=15   error=Our Branches page is not displayed.
-    Log    this
+    [Tags]   Regression
+    Log To Console     \nChecking Our Branches page...
+    AppiumLibrary.Wait Until Element Is Visible    //*[@text='menu']   timeout=60   error=Menu button is not visible
+    AppiumLibrary.Click Element    //*[@text='menu']
+    #Click Our Branches
+    AppiumLibrary.Wait Until Element Is Visible    //*[@text='wifi Our Branches']   timeout=60   error=Our Branches option is not visible
+    AppiumLibrary.Click Element    //*[@text='wifi Our Branches']
+    Sleep    2
+    AppiumLibrary.Wait Until Element Is Visible    id=select-8-0   timeout=15   error=Our Branches page is not displayed.
 
 Check Service Route
     [Tags]   Regression
+    Log To Console     \nChecking Service Route page...
     AppiumLibrary.Wait Until Element Is Visible    //*[@text='menu']   timeout=60   error=Menu button is not visible
     AppiumLibrary.Click Element    //*[@text='menu']
     #Click locate Check Service Route
@@ -63,6 +69,7 @@ Check Service Route
 
 Find Nearest Booking & Delivery Center
     [Tags]   Regression
+    Log To Console     \nChecking Nearest Center page...
     AppiumLibrary.Wait Until Element Is Visible    //*[@text='menu']   timeout=60   error=Menu button is not visible
     AppiumLibrary.Click Element    //*[@text='menu']
     #Click bookmarks Find Nearest Booking & Delivery Center
@@ -73,6 +80,7 @@ Find Nearest Booking & Delivery Center
 
 Contact Us
     [Tags]   Regression
+    Log To Console     \nChecking Contact Us page...
     AppiumLibrary.Wait Until Element Is Visible    //*[@text='menu']   timeout=60   error=Menu button is not visible
     AppiumLibrary.Click Element    //*[@text='menu']
     #Click contact Contact Us
