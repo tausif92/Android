@@ -49,7 +49,7 @@ Our Branches
 #    AppiumLibrary.Click Element    //*[@text='wifi Our Branches']
 #    Sleep    2
 #    AppiumLibrary.Wait Until Element Is Visible    id=select-8-0   timeout=15   error=Our Branches page is not displayed.
-    Log    Fail   this
+    Log    this
 
 Check Service Route
     [Tags]   Regression
