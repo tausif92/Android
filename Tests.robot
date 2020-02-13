@@ -1,6 +1,6 @@
 *** Settings ***
 Library         AppiumLibrary
-Test Setup      AppiumLibrary.Open Application    http://localhost:4723/wd/hub   platformName=Android   platformVersion=10    deviceName=emulator-5554   appPackage=com.eit.srd   appActivity=com.eit.srd.MainActivity
+Test Setup      AppiumLibrary.Open Application    http://localhost:4723/wd/hub   platformName=Android   platformVersion=8.1    deviceName=emulator-5554   appPackage=com.eit.srd   appActivity=com.eit.srd.MainActivity
 Test Teardown   Close Application
 
 *** Variables ***
