@@ -23,6 +23,7 @@ Consignment Tracking
     AppiumLibrary.Click Element      //android.widget.Button[@content-desc="arrow forward "]
     Sleep     2
     AppiumLibrary.Wait Until Page Does Not Contain Element   //*[@class='android.app.Dialog']/android.view.View   timeout=${ShortTimeout}   error=Consignment Tracking is taking longer than usual...
+    AppiumLibrary.Wait Until Element Is Visible    //android.view.View[@content-desc="Consignment Status"]   timeout=${LongTimeout}   error=Consignment Status page textbox is not visible
     Sleep     2
     Capture Page Screenshot
 
